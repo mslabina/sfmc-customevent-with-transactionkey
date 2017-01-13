@@ -1,0 +1,34 @@
+{
+	"key": "<YOUR APPLICATION EXTENSION KEY HERE>",
+	"type": "Event",
+	"filterExpressionEnabled": true,
+	"lang": {
+		"en-US": {
+			"name": "Custom Event with Transaction",
+			"description": "Custom Event with Transaction"
+		}
+	},
+	"workflowApiVersion": "1.1",
+	"configurationArguments": {
+		"applicationExtensionKey": "<YOUR APPLICATION EXTENSION KEY HERE>"
+	},
+	"wizardSteps": [
+		{"key": "selectDataExtensionId", "label": "Select DE"},
+		{"key": "selectTransactionKey", "label": "Transaction Key"}
+	],
+	"userInterfaces": {
+		"configModal": {
+			"url": "index.html"
+		},
+		"summary": [
+			{
+				"valuePath": "metaData.transactionKeys.0.from",
+				"label": "Transaction Key from"
+			},
+			{
+				"valuePath": "metaData.transactionKeys.0.to",
+				"label": "Transaction Key to"
+			}
+		]
+	}
+}

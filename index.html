@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Custom Event with Transaction</title>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script data-main="js/main.js" type="text/javascript" src="js/require.js"></script>
+
+	<style type="text/css">
+		body {
+			padding: 15px;
+			margin: 0;
+			font-size: 11px;
+			color: #16325c;
+			font-family: "Salesforce Sans", Arial, sans-serif;
+		}
+
+		h1 {
+			font-size: 16px;
+			color: #808080;
+			text-transform: uppercase;
+		}
+
+		.step {
+			display: none;
+		}
+
+		#step1 {
+			display: block;
+		}
+
+		input {
+			font-family: inherit;
+			display: block;
+			padding: 4px 5px;
+			font-size: 11px;
+			color: #16325c;
+			background-color: #ffffff;
+			background-image: none;
+			border: 1px solid #d8dde6;
+			border-radius: 0.25rem;
+			-webkit-box-shadow: none;
+			box-shadow: none;
+		}
+
+		input[type=text] {
+			width: 25%;
+			margin-bottom: 40px;
+		}
+
+		.inputLabel {
+			margin-bottom: 5px;
+			font-size: 8pt;
+			color: #808080;
+			text-transform: uppercase;
+		}
+	</style>
+</head>
+<body>
+	<div id="step1" class="step">
+		<p>Select the DE below where your data will be stored when an entry event occurs.</p>
+		<p class="inputLabel">Id</p>
+		<input id="select-dataextension-id" placeholder="Add DataExtension Id" type="text">
+	</div>
+	<div id="step2" class="step">
+		<p>Add the column that represents a unique identifier for a row in the DE.</p>
+		<p class="inputLabel">Column Name</p>
+		<input id="select-transkey-event" placeholder="column_name" type="text">
+		<p class="inputLabel">DE_Name.Column_Name</p>
+		<input id="select-transkey-dataextension" placeholder="de_name.column_name" type="text">
+	</div>
+</body>
+</html>
