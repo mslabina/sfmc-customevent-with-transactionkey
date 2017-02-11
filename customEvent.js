@@ -4,22 +4,20 @@ define(function (require) {
 	var Postmonger = require('postmonger');
 	var connection = new Postmonger.Session();
 	var payload = {};
+
+	// The steps of the configuration dialog which should be identical to wizardSteps in config.json
 	var steps = [
 		{'key': 'selectDataExtensionId', 'label': 'Select DE'},
 		{'key': 'selectTransactionKey', 'label': 'Transaction Key'}
 	];
 	var currentStep = steps[0].key;
 
-	function initialize (data) {
+	function initialize (payload) {
 		var transactionKeyEvent;
 		var transactionKeyDataExtension;
 		var dataExtensionId;
 
-		if (data) {
-			payload = data;
-		}
-
-		if (payload['arguments']) {
+		if (payload && payload['arguments']) {
 			transactionKeyEvent = payload['arguments'].transactionKeyEvent;
 			transactionKeyDataExtension = payload['arguments'].transactionKeyDataExtension;
 			dataExtensionId = payload['arguments'].dataExtensionId;
@@ -29,8 +27,6 @@ define(function (require) {
 		$('#select-transkey-event').val(transactionKeyEvent);
 		$('#select-transkey-dataextension').val(transactionKeyDataExtension);
 	}
-
-	connection.on('initEvent', initialize);
 
 	$(window).ready(function () {
 		connection.trigger('ready');
@@ -45,7 +41,10 @@ define(function (require) {
 	}
 
 	function save () {
+		// Read the dataextension id from the first wizard step's form
 		var dataExtensionId = $('#select-dataextension-id').val();
+
+		// Read the transaction key column and dataextension name from the second wizard step's form
 		var transactionKeyEvent = $('#select-transkey-event').val();
 		var transactionKeyDataExtension = $('#select-transkey-dataextension').val();
 
@@ -109,6 +108,8 @@ define(function (require) {
 		}
 	}
 
+	// Register eventlisteners
+	connection.on('initEvent', initialize);
 	connection.on('clickedNext', onClickedNext);
 	connection.on('clickedBack', onClickedBack);
 	connection.on('gotoStep', onGotoStep);
