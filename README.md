@@ -28,7 +28,7 @@ __Important__: To make sure the transaction keys are used on evaluation of decis
 
 |Major Contributors | |
 |:----|----:|
-|Markus Slabina |[![mslabina on Github](https://raw.githubusercontent.com/ExactTarget/fuelux/gh-pages/invertocat-sm.png)](https://github.com/mslabina) |
+|Markus Slabina |[![mslabina on Twitter](https://raw.githubusercontent.com/ExactTarget/fuelux/gh-pages/invertobird-sm.png)](https://twitter.com/mslabina) [![mslabina on Github](https://raw.githubusercontent.com/ExactTarget/fuelux/gh-pages/invertocat-sm.png)](https://github.com/mslabina) |
 
 ## License (MIT)
 
